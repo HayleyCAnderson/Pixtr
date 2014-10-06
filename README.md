@@ -1,1 +1,4 @@
-First Rails app - Metis Week Three
+Pixtr
+==============
+
+First Rails App - Metis Week Three
