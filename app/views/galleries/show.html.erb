@@ -1,0 +1,10 @@
+<a href="/galleries">Back to Galleries</a>
+<h1><%= @gallery.name %> Gallery</h1>
+<h2><%= @gallery.description %></h2>
+<a href="/galleries/<%= @gallery.id %>/edit">Edit this gallery</a>
+<form action="/galleries/<%= @gallery.id %>" method="POST">
+  <div>
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" value="submit">Delete this gallery</button>
+  </div>
+</form>
