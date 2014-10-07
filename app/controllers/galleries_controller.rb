@@ -9,7 +9,7 @@ class GalleriesController < ApplicationController
   def create
     gallery_params = params.require(:gallery).permit(:name, :description)
     new_gallery = Gallery.create(gallery_params)
-    redirect_to "/galleries/#{new_gallery.id}"
+    redirect_to new_gallery_path
   end
 
   def show
@@ -24,11 +24,11 @@ class GalleriesController < ApplicationController
     @gallery = Gallery.find(params[:id])
     gallery_params = params.require(:gallery).permit(:name, :description)
     @gallery.update(gallery_params)
-    redirect_to "/galleries/#{@gallery.id}"
+    redirect_to gallery_path
   end
   
   def destroy
     Gallery.find(params[:id]).destroy
-    redirect_to "/galleries"
+    redirect_to galleries_path
   end
 end
