@@ -1,0 +1,18 @@
+<a href="<%= gallery_path(@gallery) %>">Back to <%= @gallery.name %> Gallery</a>
+
+<h1><%= @image.name %> Image</h1>
+
+<h2><%= @image.description %></h2>
+
+<ul>
+  <li>
+    <a href="<%= edit_gallery_image_path(@gallery, @image) %>">Edit This Image</a>
+  </li>
+  <li>
+    <%= link_to "Delete Image", @image, method: :delete, data: { confirm: "Are you sure you want to delete #{@image.name}?" } %>
+  </li>
+</ul>
+
+<div>
+  <img src="<%= @image.url %>">
+</div>

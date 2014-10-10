@@ -1,14 +1,23 @@
-<a href="/galleries">Back to Galleries</a>
+<a href="<%= galleries_path %>">Back to Galleries</a>
 
 <h1><%= @gallery.name %> Gallery</h1>
 
 <h2><%= @gallery.description %></h2>
 
-<a href="/galleries/<%= @gallery.id %>/edit">Edit this gallery</a>
+<ul>
+  <li>
+    <a href="<%= new_gallery_image_path(@gallery) %>">Add Image</a>
+  </li>
+  <li>
+    <a href="<%= edit_gallery_path(@gallery) %>">Edit This Gallery</a>
+  </li>
+  <li>
+    <%= link_to "Delete Gallery", @gallery, method: :delete, data: { confirm: "Are you sure you want to delete #{@gallery.name} Gallery?" } %>
+  </li>
+</ul>
 
-<form action="/galleries/<%= @gallery.id %>" method="POST">
+<% @image.each do |image| %>
   <div>
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit" value="submit">Delete this gallery</button>
+  <a href="<%= gallery_image_path(@gallery, @image) %>"><img src="<%= @image.url %>" width="500px"></a>
   </div>
-</form>
+<% end %>
