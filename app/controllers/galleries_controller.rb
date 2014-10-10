@@ -10,12 +10,16 @@ class GalleriesController < ApplicationController
   def create
     @gallery = Gallery.create(gallery_params)
 
-    redirect_to gallery_path(@gallery)
+    if @gallery.valid?
+      redirect_to gallery_path(@gallery)
+    else
+      render :new
+    end
   end
 
   def show
     @gallery = Gallery.find(params[:id])
-  #  @image = @gallery.images(params[:image])
+    @images = @gallery.images
   end
 
   def edit

@@ -1,3 +1,12 @@
+<% if gallery.errors.any? %>
+  <p> Your gallery cannot be saved because: </p>
+  <ul>
+    <% gallery.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for(gallery) do |form| %>
   <div>
     <%= form.label :name %>

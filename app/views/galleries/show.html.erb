@@ -16,8 +16,8 @@
   </li>
 </ul>
 
-<% @image.each do |image| %>
+<% @images.each do |image| %>
   <div>
-  <a href="<%= gallery_image_path(@gallery, @image) %>"><img src="<%= @image.url %>" width="500px"></a>
+  <a href="<%= gallery_image_path(@gallery, image) %>"><img src="<%= image.url %>" width="500px"></a>
   </div>
 <% end %>
