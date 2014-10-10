@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  before_action :require_login, except: :show
+
   def new
     @gallery = Gallery.find(params[:gallery_id])
     @image = Image.new

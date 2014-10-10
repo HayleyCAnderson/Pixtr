@@ -1,4 +1,9 @@
 <%= form_for :session, url: session_path do |form| %>
+
+  <% if request.post? %>
+    <p>There was a problem logging you in. Try again.</p>
+  <% end %>
+
   <div>
     <%= form.label :email %>
     <%= form.email_field :email %>
