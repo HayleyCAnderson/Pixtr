@@ -7,6 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <a href="<%= galleries_path %>">Home</a>
+  <div>
+    <% if signed_in? %>
+      <%= link_to "Sign out", session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign in ", new_session_path %><br>
+      <%= link_to "Sign up", new_user_path %><br>
+    <% end %>
+  </div>
 
 <%= yield %>
 
