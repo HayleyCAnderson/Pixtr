@@ -12,22 +12,22 @@
 
 <%= form_for([gallery, image]) do |form| %>
 
-  <div>
+  <div class="name_input">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
+  <div class="description_input">
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
 
-  <div>
+  <div class="url_input">
     <%= form.label :url %>
     <%= form.text_field :url %>
   </div>
 
-  <div>
+  <div class="submit">
     <%= form.submit %>
   </div>
 

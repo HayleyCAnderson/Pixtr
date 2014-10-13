@@ -1,23 +1,36 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
   <title>Pixtr</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
+
 <body>
-  <a href="<%= galleries_path %>">Home</a>
-  <div>
+
+  <a href="<%= galleries_path %>"><h1>Pixtr</h1></a>
+
+  <h3>Like Pinterest, but terrible.</h3>
+
+  <div class="user_options">
+
     <% if signed_in? %>
       <%= link_to "Sign out", session_path, method: :delete %>
     <% else %>
       <%= link_to "Sign in ", new_session_path %><br>
       <%= link_to "Sign up", new_user_path %><br>
     <% end %>
+
   </div>
 
 <%= yield %>
 
 </body>
+
 </html>

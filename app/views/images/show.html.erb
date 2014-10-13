@@ -1,40 +1,43 @@
 <a href="<%= gallery_path(@gallery) %>">Back to <%= @gallery.name %> Gallery</a>
 
-<h1><%= @image.name %> Image</h1>
+<h2><%= @image.name %> Image</h2>
 
-<h3>Image by: <%= @image.user.email %></h3>
+<h4>Image by: <%= @image.user.email %></h4>
 
-<h2><%= @image.description %></h2>
+<h3><%= @image.description %></h3>
 
 <ul>
+
   <li>
     <a href="<%= edit_gallery_image_path(@gallery, @image) %>">Edit This Image</a>
   </li>
+
   <li>
     <%= link_to "Delete Image", [@gallery, @image], method: :delete, data: { confirm: "Are you sure you want to delete #{@image.name}?" } %>
   </li>
+
 </ul>
 
-<div>
+<div class="image">
   <img src="<%= @image.url %>">
 </div>
 
-<h2>Comments:</h2>
+<h3>Comments:</h3>
 
 <%= render(@image.comments) || "There are no comments yet." %>
 
 <%= form_for ([@image, @comment]) do |form| %>
 
   <br>
-  <div>
+  <div class="comment_label">
     <%= form.label "Comment:" %>
   </div>
 
-  <div>
+  <div class="content_input">
     <%= form.text_field :contents %>
   </div>
 
-  <div>
+  <div class="submit">
     <%= form.submit %>
   </div>
 

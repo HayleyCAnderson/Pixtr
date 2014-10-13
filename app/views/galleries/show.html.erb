@@ -1,21 +1,31 @@
-<h1><%= @gallery.name %> Gallery</h1>
+<h2><%= @gallery.name %> Gallery</h2>
 
-<h2><%= @gallery.description %></h2>
+<h3><%= @gallery.description %></h3>
 
 <ul>
+
   <li>
     <a href="<%= new_gallery_image_path(@gallery) %>">Add Image</a>
   </li>
+
   <li>
     <a href="<%= edit_gallery_path(@gallery) %>">Edit This Gallery</a>
   </li>
+
   <li>
     <%= link_to "Delete Gallery", @gallery, method: :delete, data: { confirm: "Are you sure you want to delete #{@gallery.name} Gallery?" } %>
   </li>
+
 </ul>
 
 <% @images.each do |image| %>
-  <div>
-  <a href="<%= gallery_image_path(@gallery, image) %>"><img src="<%= image.url %>" width="500px"></a>
+
+  <div class="gallery_image">
+
+   <a href="<%= gallery_image_path(@gallery, image) %>">
+      <img src="<%= image.url %>" width="500px">
+   </a>
+   
   </div>
+
 <% end %>
