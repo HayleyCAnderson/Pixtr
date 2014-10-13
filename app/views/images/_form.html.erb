@@ -1,13 +1,17 @@
 <% if image.errors.any? %>
+
   <p> Your image cannot be saved because: </p>
+
   <ul>
     <% image.errors.full_messages.each do |error| %>
       <li><%= error %></li>
     <% end %>
   </ul>
+  
 <% end %>
 
 <%= form_for([gallery, image]) do |form| %>
+
   <div>
     <%= form.label :name %>
     <%= form.text_field :name %>
@@ -26,4 +30,5 @@
   <div>
     <%= form.submit %>
   </div>
+
 <% end %>
