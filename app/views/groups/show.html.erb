@@ -1,0 +1,21 @@
+<a href="<%= groups_path %>">Back to Groups</a>
+
+<h2><%= @group.name %> Group</h2>
+
+<div class="cover_photo">
+  <img src="<%= @group.cover_photo %>" width="500px">
+</div>
+
+<h3><%= @group.description %></h3>
+
+<ul>
+
+  <li>
+    <a href="<%= edit_group_path(@group) %>">Edit This Group</a>
+  </li>
+
+  <li>
+    <%= link_to "Delete Group", @group, method: :delete, data: { confirm: "Are you sure you want to delete #{@group.name} Group?" } %>
+  </li>
+
+</ul>

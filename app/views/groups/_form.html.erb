@@ -1,16 +1,16 @@
-<% if image.errors.any? %>
+<% if group.errors.any? %>
 
-  <p>Your image cannot be saved because:</p>
+  <p>Your group cannot be saved because:</p>
 
   <ul>
-    <% image.errors.full_messages.each do |error| %>
+    <% group.errors.full_messages.each do |error| %>
       <li><%= error %></li>
     <% end %>
   </ul>
-  
+
 <% end %>
 
-<%= form_for([gallery, image]) do |form| %>
+<%= form_for(group) do |form| %>
 
   <div class="name_input">
     <%= form.label :name %>
@@ -23,8 +23,8 @@
   </div>
 
   <div class="url_input">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
+    <%= form.label :cover_photo %>
+    <%= form.text_field :cover_photo %>
   </div>
 
   <div class="submit">

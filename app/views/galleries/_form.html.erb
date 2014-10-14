@@ -1,6 +1,6 @@
 <% if gallery.errors.any? %>
 
-  <p> Your gallery cannot be saved because: </p>
+  <p>Your gallery cannot be saved because:</p>
 
   <ul>
     <% gallery.errors.full_messages.each do |error| %>
@@ -19,7 +19,7 @@
 
   <div class="description_input">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description %>
   </div>
 
   <div class="submit">
