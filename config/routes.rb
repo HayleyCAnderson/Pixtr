@@ -2,7 +2,7 @@ require "monban/constraints/signed_in"
 require "monban/constraints/signed_out"
 
 Rails.application.routes.draw do
-  root "galleries#index"
+  root "application#index"
   
   resources :galleries do
     resources :images, except: [:index]
@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :images, only: [] do
     resources :comments, only: [:create]
   end
+
+  resources :groups
 
   constraints Monban::Constraints::SignedIn.new do 
   end
