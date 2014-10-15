@@ -13,7 +13,7 @@ class GalleriesController < ApplicationController
     @gallery = Gallery.create(gallery_params)
 
     if @gallery.valid?
-      redirect_to gallery_path(@gallery)
+      redirect_to @gallery
     else
       render :new
     end
@@ -32,7 +32,7 @@ class GalleriesController < ApplicationController
     @gallery = Gallery.find(params[:id])
     @gallery.update(gallery_params)
 
-    redirect_to gallery_path(@gallery)
+    redirect_to @gallery
   end
   
   def destroy

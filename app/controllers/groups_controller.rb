@@ -11,10 +11,10 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.create(group_params)
-    @group.users << current_user
+    @group.add_member(current_user)
 
     if @group.valid?
-      redirect_to group_path(@group)
+      redirect_to @group
     else
       render :new
     end
@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.update(group_params)
 
-    redirect_to group_path(@group)
+    redirect_to @group
   end
 
   def destroy
