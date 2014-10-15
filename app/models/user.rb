@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :images
   has_many :comments
-  has_many :groups
+  has_many :group_memberships, dependent: :destroy
+  has_many :groups, through: :group_memberships
   validates :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
 end
