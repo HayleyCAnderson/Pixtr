@@ -22,6 +22,14 @@
   <img src="<%= @image.url %>">
 </div>
 
+<div class="image_liking">
+  <% if @image.users.include? current_user %>
+    <%= button_to "Unlike", image_like_path(@image), method: :delete %>
+  <% else %>
+    <%= button_to "Like", image_like_path(@image) %>
+  <% end %>
+</div>
+
 <h3>Comments:</h3>
 
 <%= render(@image.comments) || "There are no comments yet." %>
