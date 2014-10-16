@@ -22,6 +22,13 @@
   <img src="<%= @image.url %>" width="100%">
 </div>
 
+<p>
+  Tags: 
+  <% @image.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag.name) %> 
+  <% end %>
+</p>
+
 <div class="image_liking">
   <% if @image.users.include? current_user %>
     <%= button_to "Unlike", image_like_path(@image), method: :delete %>

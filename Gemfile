@@ -36,3 +36,5 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'rails_12factor', group: :production
+
+gem 'acts-as-taggable-on', '~> 3.4'
