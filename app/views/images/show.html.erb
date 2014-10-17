@@ -34,8 +34,10 @@
 <div class="image_liking">
   <% if @image.users.include? current_user %>
     <%= button_to "Unlike", image_like_path(@image), method: :delete %>
+    <p>You and <%= @image.users.count - 1 %> others like this.</p>
   <% else %>
     <%= button_to "Like", image_like_path(@image) %>
+    <p><%= @image.users.count %> likes</p>
   <% end %>
 </div>
 
