@@ -2,7 +2,6 @@ require "monban/constraints/signed_in"
 require "monban/constraints/signed_out"
 
 Rails.application.routes.draw do
-  root "application#index"
   
   resources :galleries do
     resources :images, except: [:index]
@@ -23,9 +22,11 @@ Rails.application.routes.draw do
   end
 
   constraints Monban::Constraints::SignedIn.new do 
+    root "dashboards#show", as: :dashboard
   end
 
   constraints Monban::Constraints::SignedOut.new do
+    root "application#index"
   end
 
   resource :session, only: [:new, :create, :destroy]
