@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.save
     
-    redirect_to gallery_image_path(@gallery, @image)
+    redirect_to [@gallery, @image]
   end
 
   private

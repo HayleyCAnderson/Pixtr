@@ -12,7 +12,7 @@ class ImagesController < ApplicationController
     @image.user = current_user
     
     if @image.save
-      redirect_to gallery_image_path(@gallery, @image)
+      redirect_to [@gallery, @image]
     else
       render :new
     end
@@ -34,7 +34,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     @image.update(image_params)
 
-    redirect_to gallery_image_path(@gallery, @image)
+    redirect_to [@gallery, @image]
   end
   
   def destroy
