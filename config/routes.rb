@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints Monban::Constraints::SignedIn.new do 
+  constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard
   end
 

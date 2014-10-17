@@ -1,13 +1,9 @@
 <h2>#<%= @tag %></h2>
 
-<% @images.each do |image| %>
-
-  <div class="tag_image">
-
+<div class="tagged_images">
+  <% @images.each do |image| %>
     <a href="<%= gallery_image_path(image.gallery_id, image.id) %>">
       <img src="<%= image.url %>" width="500px">
     </a>
-
-  </div>
-
-<% end %>
+  <% end %>
+</div>

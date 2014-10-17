@@ -1,15 +1,11 @@
-<div class="comment">
+<div class="user">
+  <h5><%= comment.user.email %> said:</h5>
+</div>
 
-  <div class="user">
-    <h5><%= comment.user.email %> said:</h5>
-  </div>
+<div class="content">
+  <p><%= comment.contents %></p>
+</div>
 
-  <div class="content">
-    <p><%= comment.contents %></p>
-  </div>
-
-  <div class="timestamp">
-    <h6><%= time_ago_in_words(comment.created_at) %> ago</h6>
-  </div>
-  
+<div class="timestamp">
+  <h6><%= time_ago_in_words(comment.created_at) %> ago</h6>
 </div>

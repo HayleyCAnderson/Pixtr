@@ -7,11 +7,15 @@
 <ul>
 
   <li>
-    <a href="<%= new_gallery_image_path(@gallery) %>">Add Image</a>
+    <a href="<%= new_gallery_image_path(@gallery) %>">
+      Add Image
+    </a>
   </li>
 
   <li>
-    <a href="<%= edit_gallery_path(@gallery) %>">Edit This Gallery</a>
+    <a href="<%= edit_gallery_path(@gallery) %>">
+      Edit This Gallery
+    </a>
   </li>
 
   <li>
@@ -20,14 +24,10 @@
 
 </ul>
 
-<% @images.each do |image| %>
-
-  <div class="gallery_image">
-
+<div class="gallery_images">
+  <% @images.each do |image| %>
     <a href="<%= gallery_image_path(@gallery, image) %>">
       <img src="<%= image.url %>" width="500px">
     </a>
-   
-  </div>
-
-<% end %>
+  <% end %>
+</div>

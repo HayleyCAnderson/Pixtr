@@ -9,7 +9,9 @@
 <ul>
 
   <li>
-    <a href="<%= edit_gallery_image_path(@gallery, @image) %>">Edit This Image</a>
+    <a href="<%= edit_gallery_image_path(@gallery, @image) %>">
+      Edit This Image
+    </a>
   </li>
 
   <li>
@@ -39,7 +41,9 @@
 
 <h3>Comments:</h3>
 
-<%= render(@image.comments) || "There are no comments yet." %>
+<div class="comments">
+  <%= render(@image.comments) || "There are no comments yet." %>
+</div>
 
 <%= form_for ([@image, @comment]) do |form| %>
 
