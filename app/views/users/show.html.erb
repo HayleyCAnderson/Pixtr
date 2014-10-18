@@ -1,24 +1,6 @@
-<h2>My Dashboard</h2>
+<h2><%= @user.email %></h2>
 
-<h3>Explore</h3>
-
-<ul>
-
-  <li>
-    <a href="<%= galleries_path %>">
-      Galleries
-    </a>
-  </li>
-
-  <li>
-    <a href="<%= groups_path %>">
-      Groups
-    </a>
-  </li>
-
-</ul>
-
-<h3>My Groups</h3>
+<h3>Groups</h3>
 
 <ul>
   <% @user.groups.each do |group| %>
@@ -30,7 +12,7 @@
   <% end %>
 </ul>
 
-<h3>My Images</h3>
+<h3>Images</h3>
 
 <div class="my_images">
   <% @user.images.each do |image| %>
@@ -40,12 +22,34 @@
   <% end %>
 </div>
 
-<h3>My Likes</h3>
+<h3>Likes</h3>
 
 <div class="liked_images">
   <% @user.liked_images.each do |liked_image| %>
     <a href="<%= gallery_image_path(liked_image.gallery_id, liked_image) %>">
       <img src="<%= liked_image.url %>" width="500px">
     </a>
+  <% end %>
+</div>
+
+<h3>Comments</h3>
+
+<div class="comments">
+  <% @user.comments.each do |comment| %>
+
+    <div class="comment_image">
+      <a href="<%= gallery_image_path(comment.image.gallery_id, comment.image) %>">
+        <h4><%= comment.image.name %></h4>
+      </a>
+    </div>
+
+    <div class="content">
+      <p><%= comment.contents %></p>
+    </div>
+
+    <div class="timestamp">
+      <h6><%= time_ago_in_words(comment.created_at) %> ago</h6>
+    </div>
+
   <% end %>
 </div>

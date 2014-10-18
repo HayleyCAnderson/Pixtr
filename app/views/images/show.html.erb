@@ -2,7 +2,7 @@
 
 <h2><%= @image.name %> Image</h2>
 
-<h4>Image by: <%= @image.user.email %></h4>
+<h4>Image by: <%= link_to @image.user.email, @image.user %></h4>
 
 <h3><%= @image.description %></h3>
 
